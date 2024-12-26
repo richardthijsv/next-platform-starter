@@ -11,7 +11,8 @@ export function RandomQuote() {
     useEffect(() => {
         const fetchQuote = async () => {
             try {
-                const response = await fetch(randomQuoteUrl, { cache: 'no-store' });
+                //const response = await fetch(randomQuoteUrl, { cache: 'no-store' });
+                const response = await fetch('/.netlify/functions/queryDynamoDB');
                 if (response) {
                     const data = await response.json();
                     setQuote(data);
